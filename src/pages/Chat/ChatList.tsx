@@ -3,6 +3,8 @@ import { Input, Flex, List } from 'antd';
 import type { GetProps } from 'antd';
 import ChatBox from '../../components/chat/ChatBox';
 import { GoPlusCircle } from "react-icons/go";
+import { Link } from 'react-router-dom';
+import ChatAdd from './ChatAdd';
 
 type SearchProps = GetProps<typeof Input.Search>;
 
@@ -97,7 +99,9 @@ const ChatList = () => {
 
       <div>
         <Flex justify="end">
-          <GoPlusCircle style={{ fontSize: '1.5rem' }} />
+          <Link to={'/chat/Add'}>
+            <GoPlusCircle style={{ fontSize: '1.5rem', color: '#000000' }} />
+          </Link>
         </Flex>
 
         <List
