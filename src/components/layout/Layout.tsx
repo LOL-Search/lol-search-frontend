@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
-
-interface LayoutProps {
-  children: React.ReactNode; //리액트로 만든 컴포넌트
-}
+import { LayoutProps } from "../../types/type";
 
 function Layout({children}: LayoutProps) {
 
