@@ -4,6 +4,7 @@ import { GlobalStyle } from "./style/global";
 import WriteForm from "./pages/Board/WriteForm";
 import { ConfigProvider } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PostList from "./pages/Board/PostList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/board/write" element={<WriteForm />} />
+              <Route path="/board/list" element={<PostList />} />
             </Routes>
           </BrowserRouter>
         </ConfigProvider>
