@@ -5,6 +5,7 @@ import WriteForm from "./pages/Board/WriteForm";
 import { ConfigProvider } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostList from "./pages/Board/PostList";
+import ChatList from "./pages/Chat/ChatList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         >
           <BrowserRouter>
             <Routes>
+              <Route path="/" element={<ChatList />} />
               <Route path="/board/write" element={<WriteForm />} />
               <Route path="/board/list" element={<PostList />} />
             </Routes>
