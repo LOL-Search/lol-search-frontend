@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Layout from "./components/layout/Layout";
+import { GlobalStyle } from "./style/global";
+import WriteForm from "./pages/Board/WriteForm";
+import { ConfigProvider } from "antd";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PostList from "./pages/Board/PostList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GlobalStyle />
+      <Layout>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: "#054762",
+            },
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/board/write" element={<WriteForm />} />
+              <Route path="/board/list" element={<PostList />} />
+            </Routes>
+          </BrowserRouter>
+        </ConfigProvider>
+      </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
