@@ -1,21 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Layout from './components/layout/Layout'
-import { GlobalStyle } from './style/global'
+import "./App.css";
+import Layout from "./components/layout/Layout";
+import { GlobalStyle } from "./style/global";
+import WriteForm from "./pages/Board/WriteForm";
+import { ConfigProvider } from "antd";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <GlobalStyle />
-    <Layout>
-      "test"
-    </Layout>
+      <GlobalStyle />
+      <Layout>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: "#054762",
+            },
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/board/write" element={<WriteForm />} />
+            </Routes>
+          </BrowserRouter>
+        </ConfigProvider>
+      </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
