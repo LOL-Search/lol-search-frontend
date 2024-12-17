@@ -3,7 +3,7 @@ import Footer from "../footer/Footer";
 import Header from "../header/Header";
 
 interface LayoutProps {
-  children: React.ReactNode; //리액트로 만든 컴포넌트
+  children: React.ReactNode;
 }
 
 function Layout({children}: LayoutProps) {

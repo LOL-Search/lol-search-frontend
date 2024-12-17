@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import HamburgerMenu from '../hamburgermenu/HamburgerMenu';
+import MenuOpenButton from '../menu/MenuOpenButton';
+
 
 const Header: React.FC = () => {
   return (
     <HeaderStyle>
       <h1>LOL Search</h1>
-      <HamburgerMenu />
+      <MenuOpenButton />
     </HeaderStyle>
   );
 };

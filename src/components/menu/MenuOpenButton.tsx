@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
 import styled from 'styled-components';
-import Menu from '../menu/Menu';
+import Menu from './Menu';
+import { MenuButtonProps } from '../../types/menu.type';
 
-const HamburgerMenu: React.FC = () => {
+const MenuOpenButton: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
@@ -21,18 +22,13 @@ const HamburgerMenu: React.FC = () => {
   );
 };
 
-interface MenuButtonProps {
-  isOpen: boolean;
-}
-
 const MenuButton = styled.div<MenuButtonProps>`
   cursor: pointer;
   transition: transform 0.3s ease;
 
   svg {
     transition: transform 0.3s ease;
-    transform: ${(props) => (props.isOpen ? 'rotate(45deg)' : 'rotate(0deg)')};
   }
 `;
 
-export default HamburgerMenu;
+export default MenuOpenButton;
