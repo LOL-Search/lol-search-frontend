@@ -2,7 +2,7 @@
 const images = import.meta.glob('@/assets/images/champions/*.png', { eager: true})
 const championImages: { [key: string]: string } = {};
 
-// 이미지 파일명을 키로 하여 객체에 저장
+// championImages 객체에 파일명을 키로 하여 이미지 경로를 저장
 for (const path in images) {
     const fileName = path.split('/').pop()?.replace('.png', '');
 
@@ -11,5 +11,4 @@ for (const path in images) {
     }
 }
 
-// championImages 객체에 파일명을 키로 하여 이미지 경로를 저장
 export default championImages;
