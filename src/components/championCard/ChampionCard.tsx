@@ -3,7 +3,7 @@ import championImages from '../../assets/images/images';
 
 interface ChampionCardProps {
     name: string;
-    title: string;
+    // title: string;
 }
 
 // const ChampionCard: React.FC<ChampionCardProps> = ({ name, title }) => {
