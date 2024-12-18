@@ -5,6 +5,7 @@ import WriteForm from "./pages/Board/WriteForm";
 import { ConfigProvider } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostList from "./pages/Board/PostList";
+import ViewPost from "./pages/Board/ViewPost";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Routes>
               <Route path="/board/write" element={<WriteForm />} />
               <Route path="/board/list" element={<PostList />} />
+              <Route path="/board/view" element={<ViewPost />} />
             </Routes>
           </BrowserRouter>
         </ConfigProvider>
