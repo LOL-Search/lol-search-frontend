@@ -8,6 +8,8 @@ import PostList from "./pages/Board/PostList";
 import ChatList from "./pages/Chat/ChatList";
 import ChatAdd from "./pages/Chat/ChatAdd";
 import ChatRoom from "./pages/Chat/ChatRoom";
+import ViewPost from "./pages/Board/ViewPost";
+import UserStats from "./pages/userStat/UserStat";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
               <Route path="/chat/room" element={<ChatRoom />} />
               <Route path="/board/write" element={<WriteForm />} />
               <Route path="/board/list" element={<PostList />} />
+              <Route path="/board/view" element={<ViewPost />} />
+              <Route path="/user/search" element={<UserStats />} />
             </Routes>
           </BrowserRouter>
         </ConfigProvider>
