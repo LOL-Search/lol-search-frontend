@@ -11,7 +11,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({title, headcount}) => {
   
 
   return (
-    <Link to="/">
+    <Link to="/chat/room">
       <ChatBoxStyle>
         <p style={{width: '90%'}}>{title}</p>
         <p>{headcount}</p>
