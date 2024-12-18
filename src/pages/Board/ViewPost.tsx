@@ -51,7 +51,7 @@ const ViewPost = () => {
           dataSource={data}
           renderItem={(item) => (
             <Card size="small" style={{ marginBottom: "0.3rem" }}>
-              <span>{item.author}</span> {"   "}
+              <span>{item.author}</span>{" "}
               <span style={{ color: "gray" }}>{item.datetime}</span>
               <p>{item.content}</p>
             </Card>
