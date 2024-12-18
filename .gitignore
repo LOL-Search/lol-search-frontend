@@ -277,4 +277,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# 환경변수
+.env*
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,visualstudiocode,node,react,git,dotenv,vercel
