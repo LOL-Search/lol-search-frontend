@@ -7,8 +7,8 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
       <Profile>
         <img src="https://via.placeholder.com/50" alt="프로필 사진" />
         <div>
-          <p><strong>닉네임 #KR1</strong></p>
-          <p>온라인 정보</p>
+          <p><strong>술좋아함 #KR1</strong></p>
+          <p>온라인</p>
         </div>
       </Profile>
       <MenuButton>내 정보</MenuButton>
@@ -19,15 +19,17 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
 };
 
 const MenuStyle = styled.div<{ isOpen: boolean }>`
+  display: flex; 
+  flex-direction: column; 
   position: fixed;
-  top: ${(props) => (props.isOpen ? '100px' : '-100%')};
+  top: ${(props) => (props.isOpen ? '60px' : '-100%')};
   left: 0;
   width: 100%;
-  height: calc(100vh - 100px - 80px);
+  height: 100%;
   background-color: #f8f8f8;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 5;
-  overflow-y: auto;
+  overflow-y: hidden;
   transition: top 0.5s ease-out;
 `;
 
