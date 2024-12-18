@@ -52,7 +52,7 @@ const Profile = styled.div`
 `;
 
 const MenuButton = styled.button`
-  display: block;
+  display: flex;
   width: 90%;
   margin: 0.5rem auto;
   padding: 1rem;
