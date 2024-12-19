@@ -1,10 +1,8 @@
 // src/components/UserStats.tsx
-
 import React from "react";
 import { Card, Avatar, Typography, Row, Col, Divider, Tag, Progress } from "antd";
 import { UserOutlined, TrophyOutlined, LineChartOutlined } from "@ant-design/icons";
 import styled from "styled-components";
-
 import ChampionCard from "../../components/championCard/ChampionCard";
 
 const { Title, Text } = Typography;
