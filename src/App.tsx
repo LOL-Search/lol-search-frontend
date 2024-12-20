@@ -1,7 +1,7 @@
 import "./App.css";
 import Layout from "./components/layout/Layout";
 import { GlobalStyle } from "./style/global";
-import WriteForm from "./pages/board/WriteForm";
+import WriteForm from "./pages/Board/WriteForm";
 import { ConfigProvider } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostList from "./pages/Board/PostList";
