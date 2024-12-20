@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Input, Flex, Button } from "antd";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Input } from 'antd';
 import type { GetProps } from 'antd';
 import styled from 'styled-components';

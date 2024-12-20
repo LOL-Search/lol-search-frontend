@@ -1,10 +1,9 @@
-import React from 'react';
 import { Input, Flex, List } from 'antd';
 import type { GetProps } from 'antd';
 import ChatBox from '../../components/chat/ChatBox';
 import { GoPlusCircle } from "react-icons/go";
 import { Link } from 'react-router-dom';
-import ChatAdd from './ChatAdd';
+// import ChatAdd from './ChatAdd';
 
 type SearchProps = GetProps<typeof Input.Search>;
 

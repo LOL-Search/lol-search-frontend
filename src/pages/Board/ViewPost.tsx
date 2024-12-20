@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Divider, Card, List, Input, Button, Flex } from "antd";
 import styled from "styled-components";
 
