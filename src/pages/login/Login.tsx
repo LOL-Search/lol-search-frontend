@@ -1,10 +1,56 @@
 import styled from 'styled-components';
 import { FcGoogle } from 'react-icons/fc';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
+  const navigate = useNavigate(); 
+
   const handleGoogleLogin = () => {
-    console.log("구글 로그인 클릭됨");
+    const url = `https://accounts.google.com/o/oauth2/auth?` +
+      `client_id=${import.meta.env.VITE_GOOGLE_CLIENT_ID}&` +
+      `redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&` +
+      `response_type=code&` +
+      `scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile`;
+    window.location.href = url;
   };
+
+  
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const authCode = query.get('code');
+ 
+    console.log(authCode);
+
+    if (authCode) {
+      const fetchUserData = async (authCode: string) => {
+        try {
+          const response = await fetch('http://localhost:9999/users/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ authCode }),
+          });
+
+          const data = await response.json();
+          console.log(data);
+
+          if (data.success) {
+            console.log('로그인 성공:', data);
+            localStorage.setItem('token', data.token);
+            navigate('/');
+          } else {
+            console.error('로그인 실패:', data.message);
+          }
+        } catch (error) {
+          console.error('error:', error);
+        }
+      };
+
+      fetchUserData(authCode);
+    }
+  }, [navigate]);
 
   return (
     <LoginWrapper>
@@ -24,9 +70,8 @@ const LoginWrapper = styled.div`
   padding-bottom: 100px;
 `;
 
-const Title = styled.text`
+const Title = styled.p`
   font-size: 2rem;
-  fon-weight: lighter;
   margin-bottom: 2rem;
 `;
 
