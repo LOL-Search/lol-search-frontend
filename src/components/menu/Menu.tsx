@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { MenuProps } from '../../types/menu.type';
 
-const Menu: React.FC<MenuProps> = ({ isOpen }) => {
+const Menu: React.FC<MenuProps> = ({ open }) => {
   return (
-    <MenuStyle isOpen={isOpen}>
+    <MenuStyle open={open}>
       <Profile>
         <img src="https://via.placeholder.com/50" alt="프로필 사진" />
         <div>
@@ -18,11 +18,11 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
   );
 };
 
-const MenuStyle = styled.div<{ isOpen: boolean }>`
+const MenuStyle = styled.div<{ open: boolean }>`
   display: flex; 
   flex-direction: column; 
   position: fixed;
-  top: ${(props) => (props.isOpen ? '60px' : '-100%')};
+  top: ${(props) => (props.open ? '60px' : '-100%')};
   left: 0;
   width: 100%;
   height: 100%;

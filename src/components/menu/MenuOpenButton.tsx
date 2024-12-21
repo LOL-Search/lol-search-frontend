@@ -26,10 +26,10 @@ const MenuOpenButton: React.FC = () => {
 
   return (
     <div>
-      <MenuButton onClick={toggleMenu} isOpen={menuOpen}>
+      <MenuButton onClick={toggleMenu} open={menuOpen}>
         {menuOpen ? <AiOutlineClose size={30} /> : <GiHamburgerMenu size={30} />}
       </MenuButton>
-      <Menu isOpen={menuOpen} />
+      <Menu open={menuOpen} />
     </div>
   );
 };

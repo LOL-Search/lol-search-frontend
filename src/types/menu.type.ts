@@ -1,7 +1,7 @@
 export interface MenuProps {
-    isOpen: boolean;
+    open: boolean;
 }
 
 export interface MenuButtonProps {
-    isOpen: boolean;
+    open: boolean;
 }
