@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input, List, Button } from "antd";
 import styled from "styled-components";
@@ -19,7 +19,7 @@ const PostList = () => {
 
   const pageSize = 6;
 
-  const { data, error, isLoading } = useGetPostsQuery({
+  const { data, isLoading } = useGetPostsQuery({
     keyWord,
     page: currentPage,
     pageSize,
