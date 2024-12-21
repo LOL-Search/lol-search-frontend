@@ -18,19 +18,19 @@ const Login: React.FC = () => {
   
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
-    const authCode = query.get('code');
+    const code = query.get('code');
  
-    console.log(authCode);
+    console.log(code);
 
-    if (authCode) {
-      const fetchUserData = async (authCode: string) => {
+    if (code) {
+      const fetchUserData = async (code: string) => {
         try {
           const response = await fetch('http://localhost:9999/users/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ authCode }),
+            body: JSON.stringify({ code }),
           });
 
           const data = await response.json();
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
         }
       };
 
-      fetchUserData(authCode);
+      fetchUserData(code);
     }
   }, [navigate]);
 
