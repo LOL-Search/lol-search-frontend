@@ -9,6 +9,7 @@ import ChatList from "./pages/Chat/ChatList";
 import ChatAdd from "./pages/Chat/ChatAdd";
 import ChatRoom from "./pages/Chat/ChatRoom";
 import ViewPost from "./pages/Board/ViewPost";
+import UpdatePost from "./pages/Board/UpdatePost";
 import UserStats from "./pages/userStat/UserStat";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
@@ -33,6 +34,7 @@ function App() {
               <Route path="/board/write" element={<WriteForm />} />
               <Route path="/board/list" element={<PostList />} />
               <Route path="/board/view/:postId" element={<ViewPost />} />
+              <Route path="/board/update/:postId" element={<UpdatePost />} />
               <Route path="/user/search" element={<UserStats />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />

@@ -39,7 +39,7 @@ export const boardAPI = createApi({
     }),
     updatePost: builder.mutation<
       IResponse,
-      { postId: number; body: IPostBody }
+      { postId: string; body: IPostBody }
     >({
       query: ({ postId, body }) => ({
         url: `/posts/${postId}`,

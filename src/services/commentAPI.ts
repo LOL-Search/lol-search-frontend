@@ -11,7 +11,7 @@ export const commentAPI = createApi({
     }),
     createComment: builder.mutation<
       ICommentResponse,
-      { postId: number; body: ICommentBody }
+      { postId: string; body: ICommentBody }
     >({
       query: ({ postId, body }) => ({
         url: `/posts/${postId}/comments`,
@@ -21,7 +21,7 @@ export const commentAPI = createApi({
     }),
     updateComment: builder.mutation<
       ICommentResponse,
-      { postId: number; commentId: number; body: ICommentBody }
+      { postId: string; commentId: number; body: ICommentBody }
     >({
       query: ({ postId, commentId, body }) => ({
         url: `/posts/${postId}/comments/${commentId}`,
