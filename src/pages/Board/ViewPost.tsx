@@ -1,21 +1,13 @@
 import { Typography, Divider, Card, List, Input, Button, Flex } from "antd";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { useGetPostQuery } from "../../services/boardAPI";
+import { skipToken } from "@reduxjs/toolkit/query";
+import parse from "html-react-parser";
+import { useGetCommentsQuery } from "../../services/commentAPI";
 
 const { Title, Text, Paragraph } = Typography;
 const { TextArea } = Input;
-
-const data = [
-  {
-    author: "작성자1",
-    content: "댓글 내용 1",
-    datetime: "2024-12-09",
-  },
-  {
-    author: "작성자2",
-    content: "댓글 내용 2",
-    datetime: "2024-12-09",
-  },
-];
 
 const PostSection = styled.div``;
 
@@ -28,6 +20,16 @@ const ButtonContainer = styled.div`
 `;
 
 const ViewPost = () => {
+  const { postId } = useParams();
+
+  const { data: postData, isLoading: isLoadingPost } = useGetPostQuery(
+    postId || "0" //타입오류때문에..
+  );
+
+  const { data: commentData, isLoading: isLoadingComment } =
+    useGetCommentsQuery(postId || "0");
+
+  console.log(isLoadingPost, commentData, isLoadingComment);
   return (
     <Flex
       style={{
@@ -38,20 +40,23 @@ const ViewPost = () => {
       justify="space-between"
     >
       <PostSection>
-        <Title level={3}>제목</Title>
-        <Text>작성자 | 작성날짜 | 조회수</Text>
+        <Title level={3}>{postData?.title}</Title>
+        <Text>
+          {postData?.userName} | {postData?.createdAt} | 조회수:
+          {postData?.views}
+        </Text>
         <Divider />
-        <Paragraph>게시물 내용</Paragraph>
+        <Paragraph>{parse(postData?.content ?? "")}</Paragraph>
       </PostSection>
       <CommentSection>
         <Title level={5}>댓글</Title>
         <List
           locale={{ emptyText: [] }}
-          dataSource={data}
+          dataSource={commentData}
           renderItem={(item) => (
             <Card size="small" style={{ marginBottom: "0.3rem" }}>
-              <span>{item.author}</span>{" "}
-              <span style={{ color: "gray" }}>{item.datetime}</span>
+              <span>{item.userName}</span>{" "}
+              <span style={{ color: "gray" }}>{item.createdAt}</span>
               <p>{item.content}</p>
             </Card>
           )}
