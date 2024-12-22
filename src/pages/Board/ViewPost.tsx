@@ -172,7 +172,6 @@ const ViewPost = () => {
               size="small"
               onClick={handleDeletePost}
               loading={isDeletingPost}
-              danger
               style={{ marginLeft: "0.4rem" }}
             >
               삭제
