@@ -15,13 +15,10 @@ const Login: React.FC = () => {
     window.location.href = url;
   };
 
-  
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const code = query.get('code');
- 
-    console.log(code);
-
+    
     if (code) {
       const fetchUserData = async (code: string) => {
         try {
@@ -33,18 +30,22 @@ const Login: React.FC = () => {
             body: JSON.stringify({ code }),
           });
 
-          const data = await response.json();
-          console.log(data);
-
-          if (data.success) {
-            console.log('로그인 성공:', data);
-            localStorage.setItem('token', data.token);
-            navigate('/');
+          if (response.ok) {
+            const data = await response.json();
+            if (data.token) {
+              console.log('로그인 성공:', data);
+              localStorage.setItem('token', data.token);
+              navigate('/');
+            } else {
+              console.error('로그인 실패: 응답에 토큰이 없습니다.', data);
+            }
           } else {
-            console.error('로그인 실패:', data.message);
+            console.error('HTTP 에러:', response.status);
+            const errorData = await response.json();
+            console.error('에러 메시지:', errorData.message || '에러 메시지가 없습니다.');
           }
         } catch (error) {
-          console.error('error:', error);
+          console.error('네트워크 에러:', error);
         }
       };
 
