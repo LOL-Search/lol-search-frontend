@@ -16,7 +16,7 @@ import Signup from "./pages/signup/Signup";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       <Layout>
         <ConfigProvider
@@ -26,23 +26,21 @@ function App() {
             },
           }}
         >
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<ChatList />} />
-              <Route path="/chat/add" element={<ChatAdd />} />
-              <Route path="/chat/:roomId" element={<ChatRoom />} />
-              <Route path="/board/write" element={<WriteForm />} />
-              <Route path="/board/list" element={<PostList />} />
-              <Route path="/board/view/:postId" element={<ViewPost />} />
-              <Route path="/board/update/:postId" element={<UpdatePost />} />
-              <Route path="/user/search" element={<UserStats />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
-          </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<ChatList />} />
+            <Route path="/chat/add" element={<ChatAdd />} />
+            <Route path="/chat/:roomId" element={<ChatRoom />} />
+            <Route path="/board/write" element={<WriteForm />} />
+            <Route path="/board/list" element={<PostList />} />
+            <Route path="/board/view/:postId" element={<ViewPost />} />
+            <Route path="/board/update/:postId" element={<UpdatePost />} />
+            <Route path="/user/search" element={<UserStats />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
         </ConfigProvider>
       </Layout>
-    </>
+    </BrowserRouter>
   );
 }
 
