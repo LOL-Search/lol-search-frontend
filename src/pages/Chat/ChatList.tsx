@@ -50,7 +50,7 @@ const ChatList = () => {
         onSearch={onSearch} 
         enterButton 
       />
-
+{/* 
       <div style={{height: '25%'}}>
         <p>내 채팅 목록</p>
         <List
@@ -65,7 +65,7 @@ const ChatList = () => {
             />
           )}
         />
-      </div>
+      </div> */}
 
       <div>
         <Flex justify="end">
@@ -75,7 +75,7 @@ const ChatList = () => {
         </Flex>
 
         <List
-          pagination={{ position: "bottom", align: "center", pageSize: 7, style: { marginTop: '-15px' }, showSizeChanger: false }}
+          pagination={{ position: "bottom", align: "center", pageSize: 10, style: { marginTop: '-15px' }, showSizeChanger: false }}
           size="default"
           dataSource={chatData}
           renderItem={(item) => (
