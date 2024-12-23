@@ -81,7 +81,7 @@ const ChatList = () => {
           renderItem={(item) => (
             <ChatBox
               title={item.title}
-              headcount={`${item.nowMembers+1}/2`}
+              headcount={`${item.nowMembers}/2`}
               roomId={item.id}
             />
           )}
