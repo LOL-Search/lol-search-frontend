@@ -1,5 +1,4 @@
 import { Input, message } from 'antd';
-import type { GetProps } from 'antd';
 import styled from 'styled-components';
 import { BsBoxArrowRight } from "react-icons/bs";
 import { HiOutlineUserCircle } from "react-icons/hi2";
@@ -47,9 +46,9 @@ const ChatRoom = () => {
       auth: { token: token },
     });
 
-    socket.emit('joinRoom', { roomId }, (response) => {
+    socket.emit('joinRoom', { roomId }, (response: Response) => {
       if (!response.ok) {
-        console.error(response.error);
+        console.error(response);
       } else {
         message.success('성공적으로 채팅방에 참여했습니다.');
       }
@@ -72,13 +71,13 @@ const ChatRoom = () => {
       roomId: roomId,
     };
 
-    socket.emit('sendMessage', newMessage, (response) => {
+    socket.emit('sendMessage', newMessage, (response: Response) => {
       if (response.ok) {
         console.log('메시지가 성공적으로 전송되었습니다.', response);
         setMessages((prevMessages) => [...prevMessages, { ...newMessage, sender_id: user.id }]);
         setInputMessage('');
       } else {
-        console.error(response.error);
+        console.error(response);
       }
     });
   };

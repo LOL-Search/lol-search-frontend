@@ -21,7 +21,7 @@ const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
 };
 
 const ChatList = () => {
-  const [myChatData, setMyChatData] = useState<ChatData[]>([]);
+  //const [myChatData, setMyChatData] = useState<ChatData[]>([]);
   const [chatData, setChatData] = useState<ChatData[]>([]);
 
   useEffect(() => {
@@ -31,8 +31,8 @@ const ChatList = () => {
         const responseChats: ChatData[] = await response.json();
         const chats = responseChats.reverse();
 
-        const myChats = chats.filter((chat) => chat.imIn === 1);
-        setMyChatData(myChats);
+        //const myChats = chats.filter((chat) => chat.imIn === 1);
+        //setMyChatData(myChats);
         setChatData(chats);
       } catch(error) {
         console.error('Error: ', error);
